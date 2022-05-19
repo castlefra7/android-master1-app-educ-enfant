@@ -12,7 +12,9 @@
         android:theme="@style/Theme.Projetandroid">
         <activity
             android:name=".menu.view.detail.CourseDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".menu.view.MenuActivity"
+            />
         <activity
             android:name=".authentication.view.ConnexionActivity"
             android:exported="true">

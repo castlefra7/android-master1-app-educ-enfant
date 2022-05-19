@@ -8,7 +8,21 @@ public class Content {
 
     public static final Content[] contents = {
             new Content("science de la vie", "La science nous permet de voir"),
-            new Content("histoir", "l'histoire est formidable")
+            new Content("histoire", "l'histoire est formidable"),
+            new Content("mathématiques", "la mathématique est une science exacte"),
+            new Content("Géographie", "la terre est ronde"),
+            new Content("science de la vie", "La science nous permet de voir"),
+            new Content("histoire", "l'histoire est formidable"),
+            new Content("mathématiques", "la mathématique est une science exacte"),
+            new Content("Géographie", "la terre est ronde"),
+            new Content("science de la vie", "La science nous permet de voir"),
+            new Content("histoire", "l'histoire est formidable"),
+            new Content("mathématiques", "la mathématique est une science exacte"),
+            new Content("Géographie", "la terre est ronde"),
+            new Content("science de la vie", "La science nous permet de voir"),
+            new Content("histoire", "l'histoire est formidable"),
+            new Content("mathématiques", "la mathématique est une science exacte"),
+            new Content("Géographie", "la terre est ronde"),
     };
 
     private Content(String _title, String _description) {

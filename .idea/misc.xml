@@ -8,9 +8,11 @@
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/activity_course_detail.xml" value="0.24010416666666667" />
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/activity_menu.xml" value="0.176" />
+        <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/card_content.xml" value="0.25416666666666665" />
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/fragment_course.xml" value="0.72" />
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/fragment_course_detail.xml" value="0.25416666666666665" />
-        <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/fragment_courses.xml" value="0.2" />
+        <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/fragment_course_list.xml" value="0.12291666666666666" />
+        <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/fragment_courses.xml" value="0.4" />
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/fragment_item_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/fragment_settings.xml" value="0.25416666666666665" />
         <entry key="..\:/en_cours/s7/android/projet_android/front/app/src/main/res/layout/item_list_content.xml" value="0.24010416666666667" />

@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import org.w3c.dom.Text;
+
+import java.util.Locale;
+
 import itu.master1.projetandroid.R;
 import itu.master1.projetandroid.menu.model.Content;
 
@@ -29,9 +33,11 @@ public class CourseDetailFragment extends Fragment {
         View view = getView();
         if(view != null) {
             TextView title = (TextView) view.findViewById(R.id.txtTitle);
+            TextView desc = (TextView)view.findViewById(R.id.txtDescription);
             Content content =  Content.contents[(int)contentId];
-            title.setText(content.getTitle());
-            // TODO: Set other fields
+
+            title.setText(content.getTitle().toUpperCase(Locale.ROOT));
+            desc.setText(content.getDescription());
         }
     }
 

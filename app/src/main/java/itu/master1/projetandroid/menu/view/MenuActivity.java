@@ -16,7 +16,7 @@ import itu.master1.projetandroid.menu.view.detail.CourseDetailActivity;
 import itu.master1.projetandroid.menu.view.list.CoursesFragment;
 import itu.master1.projetandroid.menu.view.settings.SettingsFragment;
 
-public class MenuActivity extends AppCompatActivity implements Listener {
+public class MenuActivity extends AppCompatActivity {
 
 
 
@@ -30,18 +30,6 @@ public class MenuActivity extends AppCompatActivity implements Listener {
 
         configureBottomView();
         configureCards();
-    }
-
-    @Override
-    public void itemClicked(long id) {
-        Intent intent = new Intent(this, CourseDetailActivity.class);
-        intent.putExtra(CourseDetailActivity.EXTRA_CONTENT_ID, (int)id);
-        startActivity(intent);
-    }
-
-    public void onShowDetails(View view) {
-        Intent intent = new Intent(this, CourseDetailActivity.class);
-        startActivity(intent);
     }
 
     private void configureBottomView() {

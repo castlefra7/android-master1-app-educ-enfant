@@ -17,7 +17,6 @@ public class CourseDetailActivity extends AppCompatActivity {
         /*FragmentManager ft = getSupportFragmentManager();
         ft.beginTransaction().replace(R.id.id_frag_course_detail, CourseDetailFragment.class, null)
                 .commit();
-
          */
         CourseDetailFragment frag = (CourseDetailFragment) getSupportFragmentManager().findFragmentById(R.id.id_frag_course_detail);
         int contentId = (int)getIntent().getExtras().get(EXTRA_CONTENT_ID);
