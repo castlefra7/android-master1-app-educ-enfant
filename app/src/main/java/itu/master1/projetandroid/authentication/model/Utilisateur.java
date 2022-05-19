@@ -1,13 +1,6 @@
-package itu.master1.projetandroid.authentification.model;
+package itu.master1.projetandroid.authentication.model;
 
 import com.google.gson.annotations.SerializedName;
-
-import okhttp3.OkHttpClient;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public final class Utilisateur extends BaseModel{
     @SerializedName("login")

@@ -1,4 +1,4 @@
-package itu.master1.projetandroid.menu.view;
+package itu.master1.projetandroid.menu.view.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

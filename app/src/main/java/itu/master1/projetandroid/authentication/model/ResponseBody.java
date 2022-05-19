@@ -1,4 +1,4 @@
-package itu.master1.projetandroid.authentification.model;
+package itu.master1.projetandroid.authentication.model;
 
 import com.google.gson.annotations.SerializedName;
 

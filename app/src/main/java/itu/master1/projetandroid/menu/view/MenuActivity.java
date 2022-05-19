@@ -1,19 +1,22 @@
 package itu.master1.projetandroid.menu.view;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 import itu.master1.projetandroid.R;
+import itu.master1.projetandroid.menu.view.detail.CourseDetailActivity;
+import itu.master1.projetandroid.menu.view.list.CoursesFragment;
+import itu.master1.projetandroid.menu.view.settings.SettingsFragment;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements Listener {
 
 
 
@@ -22,13 +25,23 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstance);
         setContentView(R.layout.activity_menu);
 
-
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_container, new CoursesFragment());
-        ft.commit();
+        FragmentManager ft = getSupportFragmentManager();
+        ft.beginTransaction().replace(R.id.id_frag_menu_container, CoursesFragment.class, null).commit();
 
         configureBottomView();
         configureCards();
+    }
+
+    @Override
+    public void itemClicked(long id) {
+        Intent intent = new Intent(this, CourseDetailActivity.class);
+        intent.putExtra(CourseDetailActivity.EXTRA_CONTENT_ID, (int)id);
+        startActivity(intent);
+    }
+
+    public void onShowDetails(View view) {
+        Intent intent = new Intent(this, CourseDetailActivity.class);
+        startActivity(intent);
     }
 
     private void configureBottomView() {
@@ -38,10 +51,10 @@ public class MenuActivity extends AppCompatActivity {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             switch (id) {
                 case R.id.action_menu:
-                    ft.replace(R.id.fragment_container, new CoursesFragment());
+                    ft.replace(R.id.id_frag_menu_container, CoursesFragment.class, null);
                     break;
                 case R.id.action_settings:
-                    ft.replace(R.id.fragment_container, new SettingsFragment());
+                    ft.replace(R.id.id_frag_menu_container, SettingsFragment.class, null);
                 default:
                     break;
             }

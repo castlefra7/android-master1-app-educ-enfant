@@ -1,4 +1,4 @@
-package itu.master1.projetandroid.authentification.model;
+package itu.master1.projetandroid.authentication.model;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

@@ -1,13 +1,6 @@
-package itu.master1.projetandroid.authentification.view;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+package itu.master1.projetandroid.authentication.view;
 
 import androidx.fragment.app.Fragment;
-
-import itu.master1.projetandroid.R;
 
 
 public class ParametreFragment extends Fragment {

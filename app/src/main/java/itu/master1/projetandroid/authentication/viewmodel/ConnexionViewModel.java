@@ -1,4 +1,4 @@
-package itu.master1.projetandroid.authentification.viewmodel;
+package itu.master1.projetandroid.authentication.viewmodel;
 
 import android.app.Application;
 import android.widget.Toast;
@@ -8,7 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import itu.master1.projetandroid.authentification.model.Utilisateur;
+import itu.master1.projetandroid.authentication.model.Utilisateur;
 import itu.master1.projetandroid.global.MyApplication;
 
 

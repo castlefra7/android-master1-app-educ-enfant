@@ -1,4 +1,4 @@
-package itu.master1.projetandroid.authentification.view;
+package itu.master1.projetandroid.authentication.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import itu.master1.projetandroid.R;
-import itu.master1.projetandroid.authentification.viewmodel.ConnexionViewModel;
+import itu.master1.projetandroid.authentication.viewmodel.ConnexionViewModel;
 import itu.master1.projetandroid.databinding.ActivityAuthentificationConnexionBinding;
 import itu.master1.projetandroid.global.MyApplication;
 import itu.master1.projetandroid.menu.view.MenuActivity;

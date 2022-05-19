@@ -7,7 +7,7 @@
 
         <variable
             name="connexionModel"
-            type="itu.master1.projetandroid.authentification.viewmodel.ConnexionViewModel" />
+            type="itu.master1.projetandroid.authentication.viewmodel.ConnexionViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:context=".authentification.view.ConnexionActivity">
+                tools:context=".authentication.view.ConnexionActivity">
 
                 <EditText
                     android:text="@={connexionModel.utilisateur.nom}"
