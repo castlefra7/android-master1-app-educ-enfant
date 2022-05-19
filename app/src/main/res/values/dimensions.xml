@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Kaky -->
+    <dimen name="menu_bouton_largeur">150dp</dimen>
+    <dimen name="menu_bouton_longueur">176dp</dimen>
+    <!-- End Kaky -->
+
+    <!-- Global -->
+    <dimen name="globlal_bouton_max_longueur">400dp</dimen>
+    <dimen name="global_bouton_largeur">64dp</dimen>
+    <dimen name="global_bouton_longueur">0dp</dimen>
+    <dimen name="global_navigation_largeur">56dp</dimen>
+    <!-- End Global -->
+</resources>
