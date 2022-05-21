@@ -1,8 +1,12 @@
 package itu.master1.projetandroid.menu.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -12,6 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import itu.master1.projetandroid.R;
 import itu.master1.projetandroid.menu.view.list.CoursesFragment;
 import itu.master1.projetandroid.menu.view.preferences.PreferencesFragment;
+import kotlinx.coroutines.Delay;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -46,5 +51,9 @@ public class MenuActivity extends AppCompatActivity {
             return true;
         });
     }
-
+    public void onClick(View view) {
+        Intent intent = new Intent(this, DelayedMessageService.class);
+        intent.putExtra(DelayedMessageService.EXTRA_MESSAGE, "Ndana amzay mianatra e");
+        startService(intent);
+    }
 }

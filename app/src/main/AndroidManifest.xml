@@ -3,6 +3,7 @@
     package="itu.master1.projetandroid">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:usesCleartextTraffic="true"
 
@@ -19,8 +20,10 @@
             android:parentActivityName=".menu.view.MenuActivity"
             />
         <activity
-            android:name=".authentication.view.ConnexionActivity"
-            android:exported="true">
+            android:exported="true"
+            android:name=".SplashScreenActivity"
+            android:theme="@style/SplashTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,8 +31,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".authentication.view.ConnexionActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
             android:name=".menu.view.MenuActivity"
             android:exported="false"></activity>
+
+        <service android:name=".menu.view.DelayedMessageService" android:exported="false"></service>
     </application>
 
 </manifest>
