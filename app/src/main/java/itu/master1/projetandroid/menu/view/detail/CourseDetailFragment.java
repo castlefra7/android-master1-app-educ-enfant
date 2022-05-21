@@ -18,7 +18,7 @@ import itu.master1.projetandroid.menu.model.Content;
 
 public class CourseDetailFragment extends Fragment {
 
-    private long contentId;
+    private Content content;
 
 
     @Override
@@ -34,7 +34,6 @@ public class CourseDetailFragment extends Fragment {
         if(view != null) {
             TextView title = (TextView) view.findViewById(R.id.txtTitle);
             TextView desc = (TextView)view.findViewById(R.id.txtDescription);
-            Content content =  Content.contents[(int)contentId];
 
             title.setText(content.getTitle().toUpperCase(Locale.ROOT));
             desc.setText(content.getDescription());
@@ -42,7 +41,7 @@ public class CourseDetailFragment extends Fragment {
     }
 
 
-    public void setContent(long id) {
-        this.contentId = id;
+    public void setContent(Content content) {
+        this.content = content;
     }
 }

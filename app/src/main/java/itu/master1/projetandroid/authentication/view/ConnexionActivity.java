@@ -34,9 +34,10 @@ public class ConnexionActivity extends AppCompatActivity {
             public void onChanged(Boolean aBoolean) {
                 if(aBoolean) {
                     MyApplication app = (MyApplication)getApplication();
-                    if(app.isaOuvertCeJour()) {
-                        Intent menuIntent = new Intent(ConnexionActivity.this, MenuActivity.class);
-                        ConnexionActivity.this.startActivity(menuIntent);
+                    Intent menuIntent = new Intent(ConnexionActivity.this, MenuActivity.class);
+                    ConnexionActivity.this.startActivity(menuIntent);
+                    if(app != null) {
+
                     } else {
                         //Intent menuIntent = new Intent(ConnexionActivity.this, OuvertureActivity.class);
                         //ConnexionActivity.this.startActivity(menuIntent);

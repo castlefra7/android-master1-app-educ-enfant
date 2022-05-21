@@ -11,11 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 import itu.master1.projetandroid.R;
+import itu.master1.projetandroid.menu.model.Content;
 
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHolder> {
-    private String[] titles;
-    private String[] descriptions;
+    private List<Content> contentList;
     private Listener listener;
     interface Listener {
         void onClick(int position);
@@ -41,10 +43,10 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         CardView cardView = holder.cardView;
         TextView txtTitle = (TextView)cardView.findViewById(R.id.id_card_title);
-        TextView txtDescrpition = (TextView)cardView.findViewById(R.id.id_card_description);
+        TextView txtDescription = (TextView)cardView.findViewById(R.id.id_card_description);
 
-        txtTitle.setText(titles[position]);
-        txtDescrpition.setText(descriptions[position]);
+        txtTitle.setText(contentList.get(position).getTitle());
+        txtDescription.setText(contentList.get(position).getDescription());
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,11 +62,18 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return this.titles.length;
+        return contentList.size();
     }
 
-    public ContentAdapter(String[] titles, String[] descriptions) {
-        this.titles = titles;
-        this.descriptions = descriptions;
+    public void setContentList(List<Content> contents) {
+        this.contentList = contents;
+    }
+
+    public List<Content> getContentList() {
+        return this.contentList;
+    }
+
+    public ContentAdapter(List<Content> _content) {
+        this.contentList = _content;
     }
 }

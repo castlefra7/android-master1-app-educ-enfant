@@ -33,12 +33,12 @@ public class ConnexionViewModel extends AndroidViewModel {
         // WEB SERVICE CALL
         if(_utilisateur.seConnecter()) {
             MyApplication app = getApplication();
-            app.setToken("Token: 122456");
-            app.setaOuvertCeJour(true);
+            //app.setToken("Token: 122456");
+            //app.setaOuvertCeJour(true);
 
             this.estAuthentifier.setValue(true);
             // WEB SERVICE CALL
-            Toast.makeText(getApplication(), "Vous êtes connecter avec succès." + _utilisateur.getNom() + " " + _utilisateur.getMotDePasse(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplication(), "Vous êtes connecter avec succès." + _utilisateur.getNom() + " " + _utilisateur.getMotDePasse(), Toast.LENGTH_SHORT).show();
         }
     }
 }

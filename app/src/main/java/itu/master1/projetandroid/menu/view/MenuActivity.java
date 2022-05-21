@@ -1,8 +1,6 @@
 package itu.master1.projetandroid.menu.view;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -12,12 +10,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 import itu.master1.projetandroid.R;
-import itu.master1.projetandroid.menu.view.detail.CourseDetailActivity;
 import itu.master1.projetandroid.menu.view.list.CoursesFragment;
-import itu.master1.projetandroid.menu.view.settings.SettingsFragment;
+import itu.master1.projetandroid.menu.view.preferences.PreferencesFragment;
 
 public class MenuActivity extends AppCompatActivity {
-
 
 
     @Override
@@ -29,7 +25,6 @@ public class MenuActivity extends AppCompatActivity {
         ft.beginTransaction().replace(R.id.id_frag_menu_container, CoursesFragment.class, null).commit();
 
         configureBottomView();
-        configureCards();
     }
 
     private void configureBottomView() {
@@ -42,7 +37,7 @@ public class MenuActivity extends AppCompatActivity {
                     ft.replace(R.id.id_frag_menu_container, CoursesFragment.class, null);
                     break;
                 case R.id.action_settings:
-                    ft.replace(R.id.id_frag_menu_container, SettingsFragment.class, null);
+                    ft.replace(R.id.id_frag_menu_container, PreferencesFragment.class, null);
                 default:
                     break;
             }
@@ -50,22 +45,6 @@ public class MenuActivity extends AppCompatActivity {
             ft.commit();
             return true;
         });
-    }
-
-    private void configureCards() {
-        /*CardView cardView = findViewById(R.id.firstCard);
-        System.out.println(cardView);
-        if(cardView != null) {
-
-        cardView.setOnClickListener(event -> {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container, new CourseFragment());
-            ft.commit();
-        });
-        }
-
-         */
-
     }
 
 }
