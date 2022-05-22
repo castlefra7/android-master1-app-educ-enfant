@@ -6,11 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".menu.view.detail.CourseDetailActivity">
 
-
-    <androidx.fragment.app.FragmentContainerView
-        android:name="itu.master1.projetandroid.menu.view.detail.CourseDetailFragment"
+   <!-- <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/ytPlayer"
+        android:name="com.google.android.youtube.player.YouTubePlayerSupportFragmentX"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/id_frag_course_detail">
-    </androidx.fragment.app.FragmentContainerView>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"></androidx.fragment.app.FragmentContainerView>
+    --><com.google.android.youtube.player.YouTubePlayerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ytPlayer"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+   <TextView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="salut aan"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/ytPlayer"
+       tools:layout_editor_absoluteX="159dp"></TextView>
+   <!--
+       <androidx.fragment.app.FragmentContainerView
+           android:name="itu.master1.projetandroid.menu.view.detail.CourseDetailFragment"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:id="@+id/id_frag_course_detail">
+       </androidx.fragment.app.FragmentContainerView>
+       -->
 </androidx.constraintlayout.widget.ConstraintLayout>
