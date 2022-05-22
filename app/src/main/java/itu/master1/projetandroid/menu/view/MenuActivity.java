@@ -14,8 +14,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 import itu.master1.projetandroid.R;
+import itu.master1.projetandroid.authentication.view.ConnexionActivity;
+import itu.master1.projetandroid.global.MyApplication;
 import itu.master1.projetandroid.menu.view.list.CoursesFragment;
 import itu.master1.projetandroid.menu.view.preferences.PreferencesFragment;
+import itu.master1.projetandroid.menu.view.profile.ProfileFragment;
 import kotlinx.coroutines.Delay;
 
 public class MenuActivity extends AppCompatActivity {
@@ -43,6 +46,10 @@ public class MenuActivity extends AppCompatActivity {
                     break;
                 case R.id.action_settings:
                     ft.replace(R.id.id_frag_menu_container, PreferencesFragment.class, null);
+                    break;
+                case R.id.action_profile:
+                    ft.replace(R.id.id_frag_menu_container, ProfileFragment.class, null);
+                    break;
                 default:
                     break;
             }
@@ -51,6 +58,14 @@ public class MenuActivity extends AppCompatActivity {
             return true;
         });
     }
+
+    public void logout(View view) {
+        MyApplication app = (MyApplication) getApplication();
+        app.setToken(null);
+        Intent intentLogin = new Intent(MenuActivity.this, ConnexionActivity.class);
+        startActivity(intentLogin);
+    }
+
     public void onClick(View view) {
         //TODO: Change notification
         Intent intent = new Intent(this, DelayedMessageService.class);

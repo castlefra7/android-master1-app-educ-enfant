@@ -46,6 +46,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
                 <EditText
+
                     android:text="@={connexionModel.utilisateur.motDePasse}"
                     android:id="@+id/editTextTextPersonName3"
                     android:layout_width="0dp"
@@ -55,13 +56,15 @@
                     android:layout_marginEnd="16dp"
                     android:ems="10"
                     android:hint="Mot de passe"
-                    android:inputType="textPersonName"
+
+                    android:inputType="textPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
                 <TextView
+
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,6 +94,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3"
                     app:layout_constraintVertical_bias="1.0"
                     app:layout_constraintWidth_max="@dimen/globlal_bouton_max_longueur" />
+
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

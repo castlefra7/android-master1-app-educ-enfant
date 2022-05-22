@@ -3,20 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <SwitchPreferenceCompat
-        app:icon="@drawable/ic_baseline_menu_24"
+        app:icon="@drawable/notifications"
         app:key="notifications"
-        app:title="Enable message notifications"/>
+        app:title="Activer les notifications"/>
 
     <Preference
-        app:icon="@drawable/ic_baseline_menu_24"
+        app:icon="@drawable/notifications"
         app:key="feedback"
-        app:title="Send feedback"
-        app:summary="Report technical issues or suggest new features"/>
+        app:title="Envoyer des rapports"
+        app:summary="Envoyer des rapports ou suggérer de nouvelles fonctionnalités"/>
 
-    <Preference
-
-        app:icon="@drawable/ic_baseline_menu_24"
-        app:key="logout"
-        app:title="Déconnexion"
-        />
 </PreferenceScreen>

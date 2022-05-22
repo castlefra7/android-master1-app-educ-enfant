@@ -22,12 +22,12 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
         setPreferencesFromResource(R.xml.preferences, rootKey);
 
 
-        Preference prefLogout = findPreference("logout");
+        // TODO: implement disable notifications
+        Preference prefLogout = findPreference("notifications");
         prefLogout.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(@NonNull Preference preference) {
-                Intent intentLogin = new Intent(getActivity(), ConnexionActivity.class);
-                startActivity(intentLogin);
+
                 return false;
             }
         });

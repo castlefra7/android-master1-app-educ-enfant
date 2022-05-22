@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import itu.master1.projetandroid.global.APIClient;
+import itu.master1.projetandroid.global.MyApplication;
 import itu.master1.projetandroid.menu.model.Content;
 import itu.master1.projetandroid.menu.model.MenuInterface;
 import retrofit2.Call;
@@ -35,9 +36,10 @@ public class CoursesViewModel extends AndroidViewModel {
 
 
     private void findContentList() {
-        System.out.println("miverina");
+        System.out.println("EEEEEEEEEEEEEEEE MIVERINA M FETCH");
         contents.setValue(new ArrayList<>());
-        MenuInterface menuInterface = APIClient.getClient().create(MenuInterface.class);
+        MyApplication app = getApplication();
+        MenuInterface menuInterface = APIClient.getClient(app).create(MenuInterface.class);
         Call<List<Content>> contentList = menuInterface.doGetContentList();
         contentList.enqueue(new Callback<List<Content>>() {
             @Override
