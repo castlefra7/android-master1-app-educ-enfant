@@ -46,7 +46,9 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         TextView txtDescription = (TextView)cardView.findViewById(R.id.id_card_description);
 
         txtTitle.setText(contentList.get(position).getTitle());
-        txtDescription.setText(contentList.get(position).getDescription());
+        String desc = contentList.get(position).getDescription();
+        if(desc != null) desc = desc.substring(0, Math.min(desc.length(), 35));
+        txtDescription.setText(desc);
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override

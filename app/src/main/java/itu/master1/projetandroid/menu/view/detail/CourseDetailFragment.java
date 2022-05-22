@@ -24,7 +24,6 @@ import itu.master1.projetandroid.menu.model.Content;
 
 public class CourseDetailFragment extends Fragment {
 
-    private Content content;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         // Defines the xml file for the fragment
@@ -34,24 +33,8 @@ public class CourseDetailFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        View view =  getView();
-
-        if(view != null && content != null) {
-
-            System.out.println(content.getTitle());
-            TextView title = (TextView) view.findViewById(R.id.txtTitle);
-            TextView desc = (TextView)view.findViewById(R.id.txtDescription);
-
-            title.setText(content.getTitle().toUpperCase(Locale.ROOT));
-            desc.setText(content.getDescription());
-        }
-
-
 
 
     }
 
-    public void setContent(Content content) {
-        this.content = content;
-    }
 }

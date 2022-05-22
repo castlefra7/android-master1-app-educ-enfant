@@ -52,6 +52,7 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
     public void onClick(View view) {
+        //TODO: Change notification
         Intent intent = new Intent(this, DelayedMessageService.class);
         intent.putExtra(DelayedMessageService.EXTRA_MESSAGE, "Ndana amzay mianatra e");
         startService(intent);

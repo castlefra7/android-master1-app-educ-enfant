@@ -12,27 +12,8 @@ public class Content implements Parcelable {
     private String description;
     @SerializedName("images")
     private String[] images;
-    @SerializedName("videos")
-    private String[] videos;
-
-    public static final Content[] contents = {
-            new Content("science de la vie", "La science nous permet de voir"),
-            new Content("histoire", "l'histoire est formidable"),
-            new Content("mathématiques", "la mathématique est une science exacte"),
-            new Content("Géographie", "la terre est ronde"),
-            new Content("science de la vie", "La science nous permet de voir"),
-            new Content("histoire", "l'histoire est formidable"),
-            new Content("mathématiques", "la mathématique est une science exacte"),
-            new Content("Géographie", "la terre est ronde"),
-            new Content("science de la vie", "La science nous permet de voir"),
-            new Content("histoire", "l'histoire est formidable"),
-            new Content("mathématiques", "la mathématique est une science exacte"),
-            new Content("Géographie", "la terre est ronde"),
-            new Content("science de la vie", "La science nous permet de voir"),
-            new Content("histoire", "l'histoire est formidable"),
-            new Content("mathématiques", "la mathématique est une science exacte"),
-            new Content("Géographie", "la terre est ronde"),
-    };
+    @SerializedName("video")
+    private String video;
 
     public Content() {
 
@@ -48,7 +29,7 @@ public class Content implements Parcelable {
         title = in.readString();
         description = in.readString();
         images = in.createStringArray();
-        videos = in.createStringArray();
+        video = in.readString();
     }
 
     public static final Creator<Content> CREATOR = new Creator<Content>() {
@@ -87,12 +68,12 @@ public class Content implements Parcelable {
         this.images = images;
     }
 
-    public String[] getVideos() {
-        return videos;
+    public String getVideo() {
+        return video;
     }
 
-    public void setVideos(String[] videos) {
-        this.videos = videos;
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     @Override
@@ -104,5 +85,7 @@ public class Content implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(title);
         parcel.writeString(description);
+        parcel.writeStringArray(images);
+        parcel.writeString(video);
     }
 }
