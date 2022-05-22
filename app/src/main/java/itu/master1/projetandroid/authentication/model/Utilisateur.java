@@ -12,12 +12,20 @@ public final class Utilisateur extends BaseModel{
     private String motDePasse;
 
     private boolean aOuvertCeJour;
-
+    /**
+     * Constructor set name and passowrd deflaut
+     *
+     */
     public Utilisateur() {
         setNom("rasoa");
         setMotDePasse("123456");
     }
 
+    /**
+     * Constructor set name and passowrd with
+     * @param _name username
+     * @param _password password
+     */
     public Utilisateur(String _name, String _password) {
         this.setNom(_name);
         this.setMotDePasse(_password);
@@ -30,7 +38,10 @@ public final class Utilisateur extends BaseModel{
     public void setaOuvertCeJour(boolean aOuvertCeJour) {
         this.aOuvertCeJour = aOuvertCeJour;
     }
-
+    /**
+     * check the user, if there is in the database
+     * @return boolean
+     */
     public boolean seConnecter() {
         boolean result = false;
         /*OkHttpClient client = new OkHttpClient.Builder().build();
@@ -64,18 +75,35 @@ public final class Utilisateur extends BaseModel{
 
     }
 
+    /**
+     * get the name of user
+     * @return String
+     */
     public String getNom() {
         return nom;
     }
 
+    /**
+     * set the name of user
+     * @param nom username
+     */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+
+    /**
+     * get the password of user
+     * @return String
+     */
     public String getMotDePasse() {
         return motDePasse;
     }
 
+    /**
+     * set the password of user
+     * @param motDePasse password of user
+     */
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
     }
