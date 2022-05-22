@@ -1,7 +1,10 @@
 package itu.master1.projetandroid.authentication.model;
 
 import com.google.gson.annotations.SerializedName;
-
+/**
+ * which allows users to be controlled
+ *
+ */
 public final class Utilisateur extends BaseModel{
     @SerializedName("login")
     private String nom;
