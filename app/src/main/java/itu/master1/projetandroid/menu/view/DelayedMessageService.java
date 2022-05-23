@@ -21,10 +21,11 @@ import itu.master1.projetandroid.menu.view.detail.CourseDetailActivity;
 import itu.master1.projetandroid.menu.viewmodel.CoursesViewModel;
 
 public class DelayedMessageService extends IntentService {
-    public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
+    public static final String EXTRA_FREQUENCY = "EXTRA_FREQUENCY";
     public static final String EXTRA_CONTENT = "EXTRA_CONTENT";
     public static final int NOTIFICATION_ID = 5453;
     private boolean isContinued = true;
+
 
     public DelayedMessageService() {
         super("DelayedMessageService");
@@ -35,7 +36,9 @@ public class DelayedMessageService extends IntentService {
         while(isContinued) {
             synchronized (this) {
                 try {
-                    wait(3000);
+                    int frequency = intent.getIntExtra(EXTRA_FREQUENCY, 3000);
+                    System.out.println(frequency);
+                    wait(frequency);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
