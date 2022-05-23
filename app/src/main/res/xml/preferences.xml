@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <ListPreference
+        app:icon="@drawable/frequency"
         android:key="freq_list"
         android:summary="Choisissez la fréquence des notifications"
         android:title="Fréquence">
 
     </ListPreference>
     <SwitchPreferenceCompat
+        
         app:icon="@drawable/notifications"
         app:key="notifications"
         app:title="Activer les notifications"/>

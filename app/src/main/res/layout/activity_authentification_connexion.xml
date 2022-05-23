@@ -64,13 +64,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
                 <TextView
-
+                    android:textColor="@color/primary"
                     android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
-                    android:hint="@string/app_name"
+                    android:gravity="center"
+                    android:text="IBOSSY"
                     android:letterSpacing="1"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -79,14 +80,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:height="@dimen/global_bouton_largeur"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/global_bouton_largeur"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="#A83F3F"
-                    android:backgroundTint="#A83F3F"
-                    android:hint="Se connecter"
+                    android:drawableLeft="@drawable/signin"
+                    android:text="Se connecter"
                     android:onClick="@{() -> connexionModel.seConnecter()}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName3"

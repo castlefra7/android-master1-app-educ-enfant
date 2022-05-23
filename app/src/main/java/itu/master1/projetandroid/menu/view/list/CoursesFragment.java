@@ -4,14 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,6 +26,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.stream.Collectors;
 
 import itu.master1.projetandroid.R;
@@ -48,6 +54,9 @@ public class CoursesFragment extends Fragment {
         LinearLayout mainLayoutLinear = mainLayout.findViewById(R.id.id_linear_for_recycle);
 
         coursesViewModel = new ViewModelProvider(this).get(CoursesViewModel.class);
+        ProgressBar spinner = (ProgressBar)mainLayout.findViewById(R.id.id_pgb_courseList);
+        spinner.setVisibility(View.VISIBLE);
+
 
         courseRecycler = (RecyclerView) inflater.inflate(R.layout.fragment_course_list, mainLayoutLinear, false);
 
@@ -92,12 +101,22 @@ public class CoursesFragment extends Fragment {
             @Override
             public void onChanged(List<Content> contents) {
                 if(contents != null) {
+
+
                     ContentAdapter contentAdapter = (ContentAdapter) courseRecycler.getAdapter();
                     contentAdapter.setContentList(contents);
 
                     for(int iC = 0; iC < contents.size(); iC++) {
                         contentAdapter.notifyItemInserted(iC);
                     }
+
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            spinner.setVisibility(View.GONE);
+                        }
+                    }, 3000);
+
                 }
 
             }

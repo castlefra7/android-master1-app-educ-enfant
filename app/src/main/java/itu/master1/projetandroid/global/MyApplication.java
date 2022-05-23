@@ -5,6 +5,7 @@ import android.app.Application;
 public class MyApplication extends Application {
     //public static String URL = "http://192.168.88.20:3000/";
     public static String URL = "https://projetandroid.herokuapp.com/";
+    public static String IMAGE_URL = "https://projetandroid.herokuapp.com/images/";
     private String token;
     public String name;
     public String email;

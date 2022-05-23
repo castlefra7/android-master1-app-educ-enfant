@@ -1,6 +1,9 @@
 package itu.master1.projetandroid.menu.view.preferences;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -41,7 +44,7 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
 
         // Notification preference
         SwitchPreferenceCompat prefNofit = findPreference("notifications");
-        prefNofit.setChecked(false);
+
         Intent intent = new Intent(getActivity(), DelayedMessageService.class);
         coursesViewModel.getContentsLive().observe(this, new Observer<List<Content>>() {
             @Override
@@ -85,7 +88,31 @@ public class PreferencesFragment extends PreferenceFragmentCompat {
             return true;
         });
 
+        // Feedback Preference
+        Preference myPref = findPreference("feedback");
+        myPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                sendFeedback(getActivity());
+                return true;
+            }
+        });
+
     }
 
-
+    public static void sendFeedback(Context context) {
+        String body = null;
+        try {
+            body = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            body = "\n\n-----------------------------\nVeuillez ne pas supprimer ces informations\n Device OS: Android \n Device OS version: " +
+                    Build.VERSION.RELEASE + "\n App Version: " + body + "\n Device Brand: " + Build.BRAND +
+                    "\n Device Model: " + Build.MODEL + "\n Device Manufacturer: " + Build.MANUFACTURER;
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"feedback@ibossy.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Suggestion d'amélioration");
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        context.startActivity(Intent.createChooser(intent, "Choisissir une application"));
+    }
 }

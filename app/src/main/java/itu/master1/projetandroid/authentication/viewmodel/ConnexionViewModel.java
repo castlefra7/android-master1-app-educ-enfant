@@ -75,7 +75,7 @@ public class ConnexionViewModel extends AndroidViewModel {
 
             @Override
             public void onFailure(Call<AuthBody> call, Throwable t) {
-
+                Toast.makeText(getApplication(), "Une erreur inconnue s'est produite", Toast.LENGTH_SHORT).show();
             }
         });
     }

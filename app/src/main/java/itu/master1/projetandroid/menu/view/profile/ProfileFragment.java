@@ -9,6 +9,8 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
+import java.util.Locale;
+
 import itu.master1.projetandroid.R;
 import itu.master1.projetandroid.global.MyApplication;
 
@@ -19,7 +21,9 @@ public class ProfileFragment extends Fragment {
         ConstraintLayout container = (ConstraintLayout)inflater.inflate(R.layout.fragment_profile, parent, false);
         TextView txtView = container.findViewById(R.id.txtProfileName);
         MyApplication app = (MyApplication) getActivity().getApplication();
-        txtView.setText(app.getName());
+        String name = app.getName();
+        if(name != null) name = name.toUpperCase(Locale.ROOT);
+        txtView.setText(name);
         return container;
     }
 

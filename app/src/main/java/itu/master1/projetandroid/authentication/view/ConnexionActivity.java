@@ -35,13 +35,7 @@ public class ConnexionActivity extends AppCompatActivity {
                 if(aBoolean) {
                     MyApplication app = (MyApplication)getApplication();
                     Intent menuIntent = new Intent(ConnexionActivity.this, MenuActivity.class);
-                    ConnexionActivity.this.startActivity(menuIntent);
-                    if(app != null) {
-
-                    } else {
-                        //Intent menuIntent = new Intent(ConnexionActivity.this, OuvertureActivity.class);
-                        //ConnexionActivity.this.startActivity(menuIntent);
-                    }
+                    startActivity(menuIntent);
                 }
             }
         });

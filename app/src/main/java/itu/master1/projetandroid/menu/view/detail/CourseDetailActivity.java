@@ -35,6 +35,7 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragmentX;
 
 import itu.master1.projetandroid.R;
 import itu.master1.projetandroid.menu.model.Content;
+import itu.master1.projetandroid.menu.view.DownLoadImageTask;
 import itu.master1.projetandroid.menu.view.MenuActivity;
 import itu.master1.projetandroid.menu.viewmodel.CoursesViewModel;
 
@@ -94,12 +95,8 @@ public class CourseDetailActivity extends YouTubeBaseActivity {
                         public void onInitializationSuccess(
                                 YouTubePlayer.Provider provider,
                                 YouTubePlayer youTubePlayer, boolean b) {
-                            //youTubePlayer.loadVideo("HzeK7g8cD0Y");
-
                             youTubePlayer.loadVideo(content.getVideo());
-                            youTubePlayer.play();
-
-
+                            youTubePlayer.pause();
                         }
 
                         // Inside onInitializationFailure
@@ -156,30 +153,5 @@ public class CourseDetailActivity extends YouTubeBaseActivity {
         this.content = content;
     }
 
-    private class DownLoadImageTask extends AsyncTask<String,Void, Bitmap> {
-        ImageView imageView;
-
-        public DownLoadImageTask(ImageView imageView){
-            this.imageView = imageView;
-        }
-
-
-        protected Bitmap doInBackground(String...urls){
-            String urlOfImage = urls[0];
-            Bitmap logo = null;
-            try{
-                InputStream is = new URL(urlOfImage).openStream();
-                logo = BitmapFactory.decodeStream(is);
-
-            }catch(Exception e){ // Catch the download exception
-                e.printStackTrace();
-            }
-            return logo;
-        }
-
-        protected void onPostExecute(Bitmap result){
-            imageView.setImageBitmap(result);
-        }
-    }
 
 }
