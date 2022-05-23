@@ -1,5 +1,6 @@
 package itu.master1.projetandroid.menu.model;
 
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -14,6 +15,15 @@ public class Content implements Parcelable {
     private String[] images;
     @SerializedName("video")
     private String video;
+    private Bitmap bitmap;
+
+    public Bitmap getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Bitmap bitmap) {
+        this.bitmap = bitmap;
+    }
 
     public Content() {
 

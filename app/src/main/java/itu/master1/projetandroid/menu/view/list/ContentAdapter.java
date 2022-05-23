@@ -60,8 +60,18 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ViewHold
         txtDescription.setText(desc);
         ImageView img = (ImageView)cardView.findViewById(R.id.id_thumbnail);
 
-        if(contentList.get(position).getImages() != null && contentList.get(position).getImages().length > 0)
-            new DownLoadImageTask(img).execute(contentList.get(position).getImages()[0]);
+        /*
+
+
+         */
+        if(contentList.get(position).getBitmap() == null) {
+            if(contentList.get(position).getImages() != null && contentList.get(position).getImages().length > 0) {
+                new DownLoadImageTask(img).execute(contentList.get(position).getImages()[0]);
+            }
+        }
+        if ((contentList.get(position).getBitmap() != null)) {
+            img.setImageBitmap(contentList.get(position).getBitmap());
+        }
         else img.setImageResource(R.drawable.bg_cardview);
 
 

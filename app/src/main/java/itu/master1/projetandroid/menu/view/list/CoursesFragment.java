@@ -47,16 +47,16 @@ public class CoursesFragment extends Fragment {
     private EditText edtSearch;
     private CoursesViewModel coursesViewModel;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 
         ConstraintLayout mainLayout = (ConstraintLayout) inflater.inflate(R.layout.fragment_courses, parent, false);
         LinearLayout mainLayoutLinear = mainLayout.findViewById(R.id.id_linear_for_recycle);
 
-        coursesViewModel = new ViewModelProvider(this).get(CoursesViewModel.class);
+        coursesViewModel = new ViewModelProvider(this.getActivity()).get(CoursesViewModel.class);
         ProgressBar spinner = (ProgressBar)mainLayout.findViewById(R.id.id_pgb_courseList);
         spinner.setVisibility(View.VISIBLE);
-
 
         courseRecycler = (RecyclerView) inflater.inflate(R.layout.fragment_course_list, mainLayoutLinear, false);
 
@@ -88,35 +88,38 @@ public class CoursesFragment extends Fragment {
             }
         });
 
-        ContentAdapter adapter =    new ContentAdapter(coursesViewModel.getContents());
-        courseRecycler.setAdapter(adapter);
-        adapter.setListener(new ContentAdapter.Listener() {
-            @Override
-            public void onClick(int position) {
-                showDetail(position);
-            }
-        });
+        ContentAdapter adapter;   adapter =    new ContentAdapter(coursesViewModel.getContents());
+
+            courseRecycler.setAdapter(adapter);
+
+            adapter.setListener(new ContentAdapter.Listener() {
+                @Override
+                public void onClick(int position) {
+                    showDetail(position);
+                }
+            });
+
+
 
         coursesViewModel.getContentsLive().observe(getViewLifecycleOwner(), new Observer<List<Content>>() {
             @Override
             public void onChanged(List<Content> contents) {
                 if(contents != null) {
-
-
                     ContentAdapter contentAdapter = (ContentAdapter) courseRecycler.getAdapter();
                     contentAdapter.setContentList(contents);
 
                     for(int iC = 0; iC < contents.size(); iC++) {
                         contentAdapter.notifyItemInserted(iC);
                     }
-
+                    spinner.setVisibility(View.GONE);
+/*
                     new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            spinner.setVisibility(View.GONE);
-                        }
-                    }, 3000);
 
+                        }
+                    }, 1000);
+*/
                 }
 
             }
@@ -136,6 +139,10 @@ public class CoursesFragment extends Fragment {
         getActivity().startActivity(intent);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
 
 
 }

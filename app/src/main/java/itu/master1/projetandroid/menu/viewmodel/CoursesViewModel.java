@@ -15,6 +15,7 @@ import itu.master1.projetandroid.global.APIClient;
 import itu.master1.projetandroid.global.MyApplication;
 import itu.master1.projetandroid.menu.model.Content;
 import itu.master1.projetandroid.menu.model.MenuInterface;
+import itu.master1.projetandroid.menu.view.DownLoadImageTask;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,7 +37,7 @@ public class CoursesViewModel extends AndroidViewModel {
 
 
     private void findContentList() {
-        System.out.println("EEEEEEEEEEEEEEEE MIVERINA M FETCH");
+        if(contents.getValue() != null && contents.getValue().size() > 0) return;
         contents.setValue(new ArrayList<>());
         MyApplication app = getApplication();
         MenuInterface menuInterface = APIClient.getClient(app).create(MenuInterface.class);
@@ -44,7 +45,12 @@ public class CoursesViewModel extends AndroidViewModel {
         contentList.enqueue(new Callback<List<Content>>() {
             @Override
             public void onResponse(Call<List<Content>> call, Response<List<Content>> response) {
-                contents.setValue(response.body());
+                List<Content> result = response.body();
+                for(Content ct: result) {
+                    if(ct.getImages() != null && ct.getImages().length > 0)
+                    new DownLoadImageTask(ct).execute(ct.getImages()[0]);
+                }
+                contents.setValue(result);
             }
 
             @Override

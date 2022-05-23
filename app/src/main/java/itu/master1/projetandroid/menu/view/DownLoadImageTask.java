@@ -9,12 +9,19 @@ import java.io.InputStream;
 import java.net.URL;
 
 import itu.master1.projetandroid.global.MyApplication;
+import itu.master1.projetandroid.menu.model.Content;
 
 public class DownLoadImageTask extends AsyncTask<String,Void, Bitmap> {
     ImageView imageView;
+    Content content;
 
     public DownLoadImageTask(ImageView imageView){
         this.imageView = imageView;
+    }
+
+
+    public DownLoadImageTask(Content content){
+        this.content = content;
     }
 
 
@@ -33,6 +40,7 @@ public class DownLoadImageTask extends AsyncTask<String,Void, Bitmap> {
     }
 
     protected void onPostExecute(Bitmap result){
-        imageView.setImageBitmap(result);
+        if(imageView != null)imageView.setImageBitmap(result);
+        if(content != null) content.setBitmap(result);
     }
 }
