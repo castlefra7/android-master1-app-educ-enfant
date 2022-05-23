@@ -11,47 +11,70 @@ import android.view.Menu;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.lifecycle.ViewModelProvider;
+
+import java.util.List;
 
 import itu.master1.projetandroid.R;
+import itu.master1.projetandroid.menu.model.Content;
+import itu.master1.projetandroid.menu.view.detail.CourseDetailActivity;
+import itu.master1.projetandroid.menu.viewmodel.CoursesViewModel;
 
 public class DelayedMessageService extends IntentService {
-    public static final String EXTRA_MESSAGE = "message";
+    public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
+    public static final String EXTRA_CONTENT = "EXTRA_CONTENT";
     public static final int NOTIFICATION_ID = 5453;
+    private boolean isContinued = true;
 
     public DelayedMessageService() {
         super("DelayedMessageService");
     }
     @Override
     protected void onHandleIntent(@Nullable Intent intent) {
-        synchronized (this) {
-            try {
-                wait(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+
+        while(isContinued) {
+            synchronized (this) {
+                try {
+                    wait(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            List<Content> contentList = intent.getParcelableArrayListExtra(EXTRA_CONTENT);
+            if(isContinued && contentList != null && contentList.size() > 0) {
+                int len = contentList.size() - 1;
+                int position = (int)(Math.random() * len) ;
+                Content content = contentList.get(position);
+                String text= content.getTitle();
+                showText(text, content);
             }
         }
-        String text = intent.getStringExtra(EXTRA_MESSAGE);
-        showText(text);
     }
 
-    private void showText(final String text) {
-        Log.v("DelayedMessageService", "The message is: " + text);
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        isContinued =  false;
+    }
 
+    private void showText(final String text, final Content content) {
         createNotificationChannel();
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel_1")
                 .setSmallIcon(R.drawable.ic_baseline_menu_24)
-                .setContentTitle("IBOSSY - Noficiation")
+                .setContentTitle("IBOSSY - Notification")
                 .setContentText(text).setPriority(NotificationCompat.PRIORITY_HIGH).setVibrate(new long[]{0, 1000})
                 .setAutoCancel(true);
-        Intent actionIntent = new Intent(this, MenuActivity.class);
+
+        Intent actionIntent = new Intent(this, CourseDetailActivity.class);
+        actionIntent.putExtra(CourseDetailActivity.EXTRA_CONTENT, content);
+
         PendingIntent actionPendingIntent = PendingIntent.getActivity(this, 0, actionIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         builder.setContentIntent(actionPendingIntent);
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
-
     }
 
     private void createNotificationChannel() {

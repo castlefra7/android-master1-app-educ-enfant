@@ -32,6 +32,7 @@ public class MenuActivity extends AppCompatActivity {
         FragmentManager ft = getSupportFragmentManager();
         ft.beginTransaction().replace(R.id.id_frag_menu_container, CoursesFragment.class, null).commit();
 
+
         configureBottomView();
     }
 
@@ -66,10 +67,4 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intentLogin);
     }
 
-    public void onClick(View view) {
-        //TODO: Change notification
-        Intent intent = new Intent(this, DelayedMessageService.class);
-        intent.putExtra(DelayedMessageService.EXTRA_MESSAGE, "Ndana amzay mianatra e");
-        startService(intent);
-    }
 }

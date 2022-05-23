@@ -8,7 +8,7 @@
         app:title="Activer les notifications"/>
 
     <Preference
-        app:icon="@drawable/notifications"
+        app:icon="@drawable/email"
         app:key="feedback"
         app:title="Envoyer des rapports"
         app:summary="Envoyer des rapports ou suggérer de nouvelles fonctionnalités"/>

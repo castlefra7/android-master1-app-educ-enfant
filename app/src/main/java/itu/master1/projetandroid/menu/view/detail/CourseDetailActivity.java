@@ -5,6 +5,7 @@ import androidx.appcompat.widget.LinearLayoutCompat$InspectionCompanion;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -34,6 +35,8 @@ import com.google.android.youtube.player.YouTubePlayerSupportFragmentX;
 
 import itu.master1.projetandroid.R;
 import itu.master1.projetandroid.menu.model.Content;
+import itu.master1.projetandroid.menu.view.MenuActivity;
+import itu.master1.projetandroid.menu.viewmodel.CoursesViewModel;
 
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
@@ -52,6 +55,7 @@ public class CourseDetailActivity extends YouTubeBaseActivity {
 
 
 
+
     public static final String EXTRA_CONTENT = "content";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +63,7 @@ public class CourseDetailActivity extends YouTubeBaseActivity {
         setContentView(R.layout.activity_course_detail);
 
         Content content = (Content)getIntent().getExtras().get(EXTRA_CONTENT);
+
         setContent(content);
         //CourseDetailFragment frag = (CourseDetailFragment) getSupportFragmentManager().findFragmentById(R.id.id_frag_course_detail);
         //frag.setContent(content);
@@ -139,6 +144,7 @@ public class CourseDetailActivity extends YouTubeBaseActivity {
         }
 
     }
+
 
     @Override
     public void onStart() {

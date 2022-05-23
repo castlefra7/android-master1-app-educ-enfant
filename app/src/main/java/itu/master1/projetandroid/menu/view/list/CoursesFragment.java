@@ -84,22 +84,22 @@ public class CoursesFragment extends Fragment {
         adapter.setListener(new ContentAdapter.Listener() {
             @Override
             public void onClick(int position) {
-                Intent intent = new Intent(getActivity(), CourseDetailActivity.class);
-                ContentAdapter adapter = (ContentAdapter) courseRecycler.getAdapter();
-                intent.putExtra(CourseDetailActivity.EXTRA_CONTENT, adapter.getContentList().get(position));
-                getActivity().startActivity(intent);
+                showDetail(position);
             }
         });
 
         coursesViewModel.getContentsLive().observe(getViewLifecycleOwner(), new Observer<List<Content>>() {
             @Override
             public void onChanged(List<Content> contents) {
-                ContentAdapter contentAdapter = (ContentAdapter) courseRecycler.getAdapter();
-                contentAdapter.setContentList(contents);
+                if(contents != null) {
+                    ContentAdapter contentAdapter = (ContentAdapter) courseRecycler.getAdapter();
+                    contentAdapter.setContentList(contents);
 
-                for(int iC = 0; iC < contents.size(); iC++) {
-                    contentAdapter.notifyItemInserted(iC);
+                    for(int iC = 0; iC < contents.size(); iC++) {
+                        contentAdapter.notifyItemInserted(iC);
+                    }
                 }
+
             }
         });
 
@@ -108,6 +108,13 @@ public class CoursesFragment extends Fragment {
 
         mainLayoutLinear.addView(courseRecycler);
         return mainLayout;
+    }
+
+    private void showDetail(int position) {
+        Intent intent = new Intent(getActivity(), CourseDetailActivity.class);
+        ContentAdapter adapter = (ContentAdapter) courseRecycler.getAdapter();
+        intent.putExtra(CourseDetailActivity.EXTRA_CONTENT, adapter.getContentList().get(position));
+        getActivity().startActivity(intent);
     }
 
 
